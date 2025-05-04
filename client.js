@@ -48,8 +48,12 @@ function connectToRoom() {
     try {
         // Crear conexión WebSocket
         const wsProtocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
-        const wsUrl = `${wsProtocol}${window.location.hostname}:3000`;
+        // En producción (como Render) usamos el mismo host y puerto que la aplicación web
+        // En desarrollo local seguimos usando el puerto 3000
+        const wsPort = window.location.hostname === 'localhost' ? ':3000' : '';
+        const wsUrl = `${wsProtocol}${window.location.hostname}${wsPort}`;
         socket = new WebSocket(wsUrl);
+        console.log('Conectando a WebSocket:', wsUrl);
         
         // Configurar manejadores de eventos WebSocket
         socket.onopen = () => {

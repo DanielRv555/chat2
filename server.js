@@ -181,5 +181,6 @@ function handleChatMessage(ws, data) {
 // Iniciar servidor HTTP en el puerto especificado
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`Servidor iniciado en http://localhost:${PORT}`);
+    console.log(`Servidor iniciado en el puerto ${PORT}`);
+    console.log(`Entorno: ${process.env.NODE_ENV || 'desarrollo'}`);
 });
