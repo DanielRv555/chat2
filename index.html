@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat en Tiempo Real</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chat en Tiempo Real</h1>
+        
+        <!-- Pantalla de conexión -->
+        <div id="connection-screen" class="screen active">
+            <h2>Conectarse a una sala</h2>
+            <div class="form-group">
+                <label for="username">Tu nombre:</label>
+                <input type="text" id="username" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="room-code">Código de sala:</label>
+                <input type="text" id="room-code" placeholder="Ejemplo: ABC123" required>
+            </div>
+            <button id="connect-btn">Conectar</button>
+            <p id="connection-status"></p>
+        </div>
+        
+        <!-- Pantalla de chat -->
+        <div id="chat-screen" class="screen">
+            <div class="chat-header">
+                <h2 id="room-title">Sala: <span id="current-room"></span></h2>
+                <div class="room-info">
+                    <span id="user-count">0 usuarios conectados</span>
+                    <button id="leave-btn">Salir</button>
+                </div>
+            </div>
+            
+            <div id="messages-container"></div>
+            
+            <div class="chat-inputs">
+                <div class="text-input">
+                    <input type="text" id="message-input" placeholder="Escribe un mensaje...">
+                    <button id="send-btn">Enviar</button>
+                </div>
+                
+                <div class="media-inputs">
+                    <div class="media-input">
+                        <label for="image-input" class="media-label">
+                            <span class="media-icon">🖼️</span>
+                            <span>Imagen</span>
+                        </label>
+                        <input type="file" id="image-input" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div class="media-input">
+                        <label for="video-input" class="media-label">
+                            <span class="media-icon">🎥</span>
+                            <span>Video</span>
+                        </label>
+                        <input type="file" id="video-input" accept="video/*" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="client.js"></script>
+</body>
+</html>
